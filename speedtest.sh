@@ -36,6 +36,8 @@ back2menu(){
 get_speedtest(){
 	wget -N https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-$cpuArch.tgz
 	tar -xzvf ookla-speedtest-1.2.0-linux-$cpuArch.tgz -C /usr/bin
+	chmod +x /usr/bin/speedtest
+	rm -rf ookla-speedtest-1.2.0-linux-$cpuArch.tgz
 	green "程序包已安装成功"
 	back2menu
 }
@@ -80,7 +82,7 @@ menu(){
 		2) run_speedtest ;;
 		3) 1run_speedtest ;;
 		4) server ;;
-    5) echo "                           " ;;
+                5) rm -rf /usr/bin/speedtest speedtest.5 speedtest.md ;;
 		0) exit 1 ;;
 	esac
 }
