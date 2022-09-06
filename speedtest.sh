@@ -53,7 +53,7 @@ run_speedtest(){
 }
 
 1run_speedtest(){
-  read -p "请输入数字:" NumberInput
+  read -p "请输入服务器ID数字:" NumberInput
   speedtest -s $NumberInput
   green "运行完成"
 	back2menu
@@ -76,17 +76,17 @@ menu(){
 	green "1. 安装/更新程序包"
 	green "2. 运行"
 	green "3. 指定服务器测速"
-     green "4. 拉取sppedtest服务器ID配合3运行"
-     green "5. 卸载程序"
+        green "4. 拉取sppedtest服务器ID配合3运行"
+        green "5. 卸载程序"
 	green "0. 退出"
 	echo "         "
-	read -p "请输入服务器ID数字:" NumberInput
+	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
 		1) get_speedtest ;;
 		2) run_speedtest ;;
 		3) 1run_speedtest ;;
 		4) server ;;
-                5) rm -rf /usr/bin/speedtest speedtest.5 speedtest.md ;;
+                5) rm -rf /usr/bin/speedtest speedtest.5 speedtest.md && rm -rf /root/speedtest.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
 }
