@@ -24,6 +24,12 @@ archAffix(){
 	esac
 }
 
+version(){
+        curl https://www.speedtest.net/apps/cli#linux-flyout | grep ".tgz" | grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+	green "$version"
+	back2menu
+}
+
 back2menu(){
 	green "所选操作执行完成"
 	read -p "请输入“y”退出，或按任意键回到主菜单：" back2menuInput
