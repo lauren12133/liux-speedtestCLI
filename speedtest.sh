@@ -16,10 +16,10 @@ yellow(){
 archAffix(){
 	cpuArch=$(uname -m)
 	case "$cpuArch" in
-		i686 | i386) cpuArch='386' ;;
-		x86_64 | amd64) cpuArch='amd64' ;;
-		armv5tel | arm6l | armv7 | armv7l) cpuArch='arm' ;;
-		armv8 | aarch64) cpuArch='arm64' ;;
+		i686 | i386) cpuArch='i386' ;;
+		x86_64 | x86_64) cpuArch='x86_64' ;;
+		armv5tel | arm6l | armv7 | armv7l) cpuArch='armel' ;;
+		armv8 | aarch64) cpuArch='aarch64' ;;
 		*) red "不支持的CPU架构！" && exit 1 ;;
 	esac
 }
@@ -38,10 +38,10 @@ back2menu(){
 }
 
 get_speedtest(){
-	wget -N https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-$cpuArch.tgz
-	tar -xzvf ookla-speedtest-1.2.0-linux-$cpuArch.tgz -C /usr/bin
+	wget https://install.speedtest.net/app/cli/ookla-speedtest-"$vid"-linux-"$cpuArch".tgz
+	tar -xzvf ookla-speedtest-"$vid"-linux-"$cpuArch".tgz -C /usr/bin
 	chmod +x /usr/bin/speedtest
-	rm -rf ookla-speedtest-1.2.0-linux-$cpuArch.tgz
+	rm -rf ookla-speedtest-"$vid"-linux-"$cpuArch".tgz
 	green "程序包已安装成功"
 	back2menu
 }
@@ -54,13 +54,13 @@ run_speedtest(){
 
 1run_speedtest(){
   read -p "请输入数字:" NumberInput
-  speedtest -c $NumberInput
+  speedtest -s $NumberInput
   green "运行完成"
 	back2menu
 }
 
 server(){
-  curl https://www.speedtest.net/speedtest-servers-static.php
+  speedtest -L
   green "查看你需要得服务器ID"
 	back2menu
 }
@@ -68,7 +68,7 @@ server(){
 menu(){
 	clear
 	red "=================================="
-	echo "            $vid              "
+	echo "             $vid              "
 	red "   speedtestCLI liux一键运行脚本    "
 	echo "                           "
 	red "=================================="
@@ -76,11 +76,11 @@ menu(){
 	green "1. 安装/更新程序包"
 	green "2. 运行"
 	green "3. 指定服务器测速"
-  green "4. 拉取sppedtest服务器ID配合3运行"
-  green "5. 卸载程序"
+     green "4. 拉取sppedtest服务器ID配合3运行"
+     green "5. 卸载程序"
 	green "0. 退出"
 	echo "         "
-	read -p "请输入数字:" NumberInput
+	read -p "请输入服务器ID数字:" NumberInput
 	case "$NumberInput" in
 		1) get_speedtest ;;
 		2) run_speedtest ;;
