@@ -70,7 +70,7 @@ server(){
 menu(){
 	clear
 	red "=================================="
-	echo "                           "
+	echo "            $version               "
 	red "   speedtestCLI liux一键运行脚本    "
 	echo "                           "
 	red "=================================="
