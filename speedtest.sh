@@ -94,4 +94,5 @@ menu(){
 }
 
 archAffix
+version
 menu
