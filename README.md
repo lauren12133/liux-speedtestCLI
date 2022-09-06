@@ -10,7 +10,7 @@ openwrt未安装的用户请执行：opkg update && opkg install curl bash
 ## 使用方法
 
 ```shell
-wget -N https://github.com/lauren12133/liux-speedtestCLI/raw/main/speedtest.sh && chmod +x speedtest.sh && bash speedtest.sh
+wget -N https://raw.githubusercontent.com/lauren12133/liux-speedtestCLI/main/speedtest.sh && chmod +x speedtest.sh && bash speedtest.sh
 ```
 
 其他运行命令可直接执行 speedtest 运行
