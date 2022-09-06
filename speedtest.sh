@@ -25,9 +25,7 @@ archAffix(){
 }
 
 version(){
-        curl https://www.speedtest.net/apps/cli#linux-flyout | grep ".tgz" | grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
-	green "$version"
-	back2menu
+        vid=$(curl https://www.speedtest.net/apps/cli#linux-flyout | grep ".tgz" | grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" | head -n 1)
 }
 
 back2menu(){
@@ -70,7 +68,7 @@ server(){
 menu(){
 	clear
 	red "=================================="
-	echo "            $version               "
+	echo "            $vid              "
 	red "   speedtestCLI liux一键运行脚本    "
 	echo "                           "
 	red "=================================="
