@@ -38,18 +38,28 @@ back2menu(){
 }
 
 get_speedtest(){
+     if [[ -f /usr/bin/speedtest ]];then
+     red "------程序已安装回到主菜单运行------"
+	back2menu
+	else
 	wget https://install.speedtest.net/app/cli/ookla-speedtest-"$vid"-linux-"$cpuArch".tgz
 	tar -xzvf ookla-speedtest-"$vid"-linux-"$cpuArch".tgz -C /usr/bin
 	chmod +x /usr/bin/speedtest
 	rm -rf ookla-speedtest-"$vid"-linux-"$cpuArch".tgz
 	green "程序包已安装成功"
 	back2menu
+	fi
 }
 
 run_speedtest(){
-  speedtest
-  green "运行完成"
+     if [[ -f /usr/bin/speedtest ]];then
+     speedtest
+     green "运行完成"
 	back2menu
+	else
+     red "------程序未安装请执行1安装------"
+     back2menu
+	fi
 }
 
 1run_speedtest(){
