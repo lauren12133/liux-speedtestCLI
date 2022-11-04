@@ -12,6 +12,10 @@ openwrt未安装的用户请执行：opkg update && opkg install curl bash
 ```shell
 wget -N https://raw.githubusercontent.com/lauren12133/liux-speedtestCLI/main/speedtest.sh && chmod +x speedtest.sh && bash speedtest.sh
 ```
+## 没有梯子执行这条
+```shell
+wget -N https://ghproxy.com/https://raw.githubusercontent.com/lauren12133/liux-speedtestCLI/main/speedtest.sh && chmod +x speedtest.sh && bash speedtest.sh
+```
 
 其他运行命令可直接执行 speedtest 运行
 
