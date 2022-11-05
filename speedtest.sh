@@ -63,6 +63,7 @@ run_speedtest(){
 }
 
 1run_speedtest(){
+  chmod +x /usr/bin/speedtest
   read -p "请输入服务器ID数字:" NumberInput
   speedtest -s $NumberInput
   green "运行完成"
