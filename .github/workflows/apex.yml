@@ -14,7 +14,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
       with:
-        repository: https://github.com/tea321000/dma_me  # 替换为要克隆的存储库的 URL
+        repository: tea321000/dma_me  # 替换为要克隆的存储库的 URL
 
     - name: Set up MSBuild
       run: choco install visualstudio2019buildtools --package-parameters "--includeRecommended --includeOptional"  # 安装 Visual Studio Build Tools
