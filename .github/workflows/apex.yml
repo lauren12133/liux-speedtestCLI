@@ -3,7 +3,9 @@ on:
   push:
     branches:
       - master  # 替换为您要触发构建的分支
-
+  watch:
+    types: [started]
+    
 jobs:
   build:
     runs-on: windows-latest  # 使用 Windows 操作系统
